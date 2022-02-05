@@ -1,7 +1,5 @@
 <template>
-  <div class="main-container">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script>
@@ -13,11 +11,10 @@ export default {
 <style lang="scss">
 @import "./assets/fonts/fonts.css";
 
-.main-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+html,
+body,
+#app {
+  height: 99%;
+  margin: 0;
 }
 </style>

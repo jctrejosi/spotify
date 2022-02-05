@@ -1,7 +1,7 @@
 <template>
   <form class="login-modal">
     <a class="login-modal__logo">
-      <img src="@/assets/spotify.svg" />
+      <spotify />
     </a>
 
     <label for="user" class="login-modal__user">
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import spotify from "../assets/spotifySVG.vue";
+
 export default {
   name: "Login-Modal",
 
@@ -36,6 +38,10 @@ export default {
       password: "",
       check: false,
     };
+  },
+
+  components: {
+    spotify
   },
 
   props: {
@@ -72,7 +78,8 @@ export default {
     padding-bottom: 1rem;
     width: 100%;
 
-    img {
+    svg {
+      fill: $main-color;
       height: 100%;
       width: 100%;
     }
