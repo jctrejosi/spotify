@@ -88,7 +88,7 @@ export default {
 
     input {
       height: 3rem;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       padding-left: 1rem;
       width: 100%;
     }
