@@ -139,6 +139,12 @@ export default {
         color: $light-nearly-color;
         cursor: pointer;
         gap: 1rem;
+        transition: all 0.1s;
+
+        &:hover {
+          fill: $light-nearly-color-hover;
+          color: $light-nearly-color-hover;
+        }
       }
 
       &-playlist {

@@ -21,8 +21,15 @@
         <input v-model="check" checked="checked" type="checkbox" />
         <span>Recordarme</span>
       </label>
-      <a class="login-modal__button" @click="change_page()">Iniciar Sesión</a>
+      <a class="login-modal__button--login" @click="change_page()">
+        Iniciar Sesión
+      </a>
     </div>
+
+    <span class="login-modal__label-checkin">¿No tienes cuenta?</span>
+    <a class="login-modal__button--checkin" @click="change_page()">
+      REGÍSTRARTE EN SPOTIFY
+    </a>
   </form>
 </template>
 
@@ -41,7 +48,7 @@ export default {
   },
 
   components: {
-    spotify
+    spotify,
   },
 
   props: {
@@ -62,13 +69,12 @@ export default {
 <style lang="scss" scoped>
 .login-modal {
   align-items: center;
-  border-left: 0.1rem solid black;
-  border-right: 0.1rem solid black;
   display: flex;
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
   height: 25rem;
   justify-content: center;
+  margin-bottom: auto;
   padding: 3rem;
   width: 25rem;
 
@@ -88,12 +94,14 @@ export default {
   &__user,
   &__password {
     width: 100%;
+    margin-top: 1rem;
 
     span {
       font-weight: bold;
     }
 
     input {
+      font-size: 1rem;
       height: 3rem;
       margin-top: 0.5rem;
       padding-left: 1rem;
@@ -101,8 +109,19 @@ export default {
     }
   }
 
-  &__label-check {
-    width: 100%;
+  &__label {
+    &-check,
+    &-checkin {
+      font-weight: bold;
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    &-checkin {
+      text-align: center;
+      border-top: 0.1rem solid gainsboro;
+      padding-top: 3rem;
+    }
   }
 
   &__footer {
@@ -114,16 +133,36 @@ export default {
   }
 
   &__button {
-    align-items: center;
-    background-color: $main-color;
-    border-radius: 4rem;
-    cursor: pointer;
-    display: flex;
-    font-weight: bold;
-    height: 3rem;
-    justify-content: center;
-    padding: 0 3rem;
-    text-transform: uppercase;
+    &--login {
+      align-items: center;
+      background-color: $main-color;
+      border-radius: 4rem;
+      cursor: pointer;
+      display: flex;
+      font-weight: bold;
+      height: 3rem;
+      justify-content: center;
+      padding: 0 3rem;
+      text-transform: uppercase;
+    }
+
+    &--checkin {
+      align-items: center;
+      background-color: transparent;
+      border: 0.1rem solid $medium-color;
+      color: $medium-color;
+      border-radius: 4rem;
+      cursor: pointer;
+      display: flex;
+      height: 3rem;
+      justify-content: center;
+      padding: 0 3rem;
+      text-transform: uppercase;
+
+      &:hover {
+        border-color: $dark-color;
+      }
+    }
   }
 }
 </style>
