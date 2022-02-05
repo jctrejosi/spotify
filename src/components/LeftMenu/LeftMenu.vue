@@ -90,19 +90,21 @@ export default {
 
 <style lang="scss" scoped>
 .leftmenu {
-  align-items: flex-start;
   align-content: flex-start;
+  align-items: flex-start;
   background-color: $bg-dark-color;
   display: flex;
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   justify-content: flex-start;
-  padding: 2rem 4rem 0 2rem;
+  padding: 0 4rem 0 2rem;
+  position: relative;
   width: 10rem;
 
   &__logo {
     height: 3rem;
+    margin-top: 1rem;
     width: 100%;
 
     svg {

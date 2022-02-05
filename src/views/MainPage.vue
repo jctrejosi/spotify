@@ -1,5 +1,7 @@
 <template>
-  <LeftMenu />
+  <div class="main-container">
+    <LeftMenu />
+  </div>
 </template>
 
 <script>
@@ -13,3 +15,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.main-container {
+  width: 100%;
+  height: 100%;
+  background-color: $bg-dark-nearly-color;
+}
+</style>
