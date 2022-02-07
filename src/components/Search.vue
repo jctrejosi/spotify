@@ -27,13 +27,16 @@ export default {
 .search {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 20rem;
   padding: 0 2rem;
+  position: absolute;
+  top: 0;
+  left: 15rem;
   height: 4rem;
 
   &__label {
     height: 60%;
-    width: 30%;
+    width: 100%;
   }
 
   &__input {
