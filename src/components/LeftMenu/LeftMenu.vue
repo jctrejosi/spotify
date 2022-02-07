@@ -4,7 +4,10 @@
       <spotify />
     </a>
     <ul class="leftmenu__list">
-      <li class="leftmenu__list--item leftmenu__list--item-active">
+      <li
+        class="leftmenu__list--item"
+        :class="{ 'leftmenu__list--item-active': li1 }"
+      >
         <a>
           <svg
             role="img"
@@ -12,15 +15,19 @@
             width="24"
             class="Svg-sc-1bi12j5-0 hDgDGI home-active-icon"
             viewBox="0 0 24 24"
+            @click="change_class(1)"
           >
             <path
               d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"
             ></path>
           </svg>
-          <span>Inicio</span>
+          <span @click="change_class(1)">Inicio</span>
         </a>
       </li>
-      <li class="leftmenu__list--item">
+      <li
+        class="leftmenu__list--item"
+        :class="{ 'leftmenu__list--item-active': li2 }"
+      >
         <a>
           <svg
             role="img"
@@ -28,6 +35,7 @@
             width="24"
             class="Svg-sc-1bi12j5-0 hDgDGI search-active-icon"
             viewBox="0 0 24 24"
+            @click="change_class(2)"
           >
             <path
               d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"
@@ -36,10 +44,13 @@
               d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 01-2.077 5.816l4.344 4.344a1 1 0 01-1.414 1.414l-4.353-4.353a9.454 9.454 0 01-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
             ></path>
           </svg>
-          <span>Buscar</span>
+          <span @click="change_class(2)">Buscar</span>
         </a>
       </li>
-      <li class="leftmenu__list--item">
+      <li
+        class="leftmenu__list--item"
+        :class="{ 'leftmenu__list--item-active': li3 }"
+      >
         <a>
           <svg
             role="img"
@@ -47,15 +58,19 @@
             width="24"
             class="Svg-sc-1bi12j5-0 hDgDGI collection-icon"
             viewBox="0 0 24 24"
+            @click="change_class(3)"
           >
             <path
               d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"
             ></path>
           </svg>
-          <span>Tu Biblioteca</span>
+          <span @click="change_class(3)">Tu Biblioteca</span>
         </a>
       </li>
-      <li class="leftmenu__list--item leftmenu__list--item-playlist">
+      <li
+        class="leftmenu__list--item leftmenu__list--item-playlist"
+        :class="{ 'leftmenu__list--item-active': li4 }"
+      >
         <a>
           <svg
             role="img"
@@ -64,12 +79,13 @@
             aria-hidden="true"
             viewBox="0 0 16 16"
             class="Svg-sc-1bi12j5-0 hDgDGI"
+            @click="change_class(4)"
           >
             <path
               d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z"
             ></path>
           </svg>
-          <span>Crear playlist</span>
+          <span @click="change_class(4)">Crear playlist</span>
         </a>
       </li>
     </ul>
@@ -81,6 +97,46 @@ import spotify from "../../assets/spotifySVG.vue";
 
 export default {
   name: "leftmenu",
+
+  data() {
+    return {
+      li1: true,
+      li2: false,
+      li3: false,
+      li4: false,
+    };
+  },
+
+  methods: {
+    change_class(li) {
+      switch (li) {
+        case 1:
+          this.li1 = true;
+          this.li2 = false;
+          this.li3 = false;
+          this.li4 = false;
+          break;
+        case 2:
+          this.li1 = false;
+          this.li2 = true;
+          this.li3 = false;
+          this.li4 = false;
+          break;
+        case 3:
+          this.li1 = false;
+          this.li2 = false;
+          this.li3 = true;
+          this.li4 = false;
+          break;
+        case 4:
+          this.li1 = false;
+          this.li2 = false;
+          this.li3 = false;
+          this.li4 = true;
+          break;
+      }
+    },
+  },
 
   components: {
     spotify,
@@ -131,15 +187,16 @@ export default {
     &--item {
       margin-top: 1rem;
       width: 100%;
+      fill: $light-nearly-color;
+      color: $light-nearly-color;
 
       a {
         display: flex;
         align-items: center;
-        fill: $light-nearly-color;
-        color: $light-nearly-color;
         cursor: pointer;
         gap: 1rem;
         transition: all 0.1s;
+        z-index: 1;
 
         &:hover {
           fill: $light-nearly-color-hover;
@@ -157,11 +214,9 @@ export default {
       }
 
       &-active {
-        a {
-          font-weight: bold;
-          color: $light-color;
-          fill: $light-color;
-        }
+        font-weight: bold;
+        color: $light-color;
+        fill: $light-color;
       }
     }
   }

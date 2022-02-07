@@ -3,8 +3,17 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "App",
+
+  methods: {
+    ...mapActions("users", ["Get_Token"]),
+  },
+
+  created() {
+    this.Get_Token();
+  },
 };
 </script>
 
